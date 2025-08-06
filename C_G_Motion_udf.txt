@@ -1,0 +1,24 @@
+#include "udf.h"
+#define max_dis 0.05
+#define angular_frequency 12.56
+
+DEFINE_CG_MOTION (rotational_motion, thread, linear_velocity, angular_velocity, time, dtime)
+
+{
+
+real angular_vel;
+
+agular_vel = max_dis * angular_frequency * cos (angular_frequency*time);
+
+
+linear_velocity[0] = 0.0;
+linear_velocity[1] = 0.0;
+linear_velocity[2] = 0.0;
+
+angular_velocity[0] = 0.0
+angular_velocity[1] = 0.0
+angular_velocity[2] = agular_vel
+
+DT_NEST_LOC_ROT_P(dt) = FALSE
+DT_NEST_LOC_TRAN_P(dt) = FALSE
+}
